@@ -31,12 +31,25 @@
     background-position: center;
   }
   
+  #maintenance-text {
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
     </style>
 </head>
 <body>
 
     <div id="black">
         <div id="dvd"></div>
+        <div id="maintenance-text">Maintenance</div>
       </div>
       <script>
         let x = 0,
@@ -46,6 +59,7 @@
 const speed = 2;
 const pallete = ["#ff8800", "#e124ff", "#6a19ff", "#ff2188"];
 let dvd = document.getElementById("dvd");
+let maintenanceText = document.getElementById("maintenance-text");
 dvd.style.backgroundColor = pallete[0];
 let prevColorChoiceIndex = 0;
 let black = document.getElementById("black");
@@ -77,6 +91,8 @@ function animate() {
   y += dirY * speed;
   dvd.style.left = x + "px";
   dvd.style.top = y + "px";
+  maintenanceText.style.left = x + "px";
+  maintenanceText.style.top = (y + 50) + "px";
   window.requestAnimationFrame(animate);
 }
 
